@@ -48,13 +48,13 @@ class ViewTicket extends ViewRecord implements HasForms
             Actions\Action::make('toggleSubscribe')
                 ->label(
                     fn() => $this->record->subscribers()->where('users.id', auth()->user()->id)->count() ?
-                        __('Unsubscribe')
-                        : __('Subscribe')
+                    __('Unsubscribe')
+                    : __('Subscribe')
                 )
                 ->color(
                     fn() => $this->record->subscribers()->where('users.id', auth()->user()->id)->count() ?
-                        'danger'
-                        : 'success'
+                    'danger'
+                    : 'success'
                 )
                 ->icon('heroicon-o-bell')
                 ->button()
@@ -98,7 +98,7 @@ class ViewTicket extends ViewRecord implements HasForms
                 ))
                 ->form([
                     TextInput::make('time')
-                        ->label(__('Time to log'))
+                        ->label(__('Time to log by Hours'))
                         ->numeric()
                         ->required(),
                     Select::make('activity_id')
@@ -132,7 +132,7 @@ class ViewTicket extends ViewRecord implements HasForms
                     ->color('warning')
                     ->visible(
                         fn() => $this->record->watchers->where('id', auth()->user()->id)->count()
-                            && $this->record->hours()->count()
+                        && $this->record->hours()->count()
                     )
                     ->action(fn() => Excel::download(
                         new TicketHoursExport($this->record),
@@ -142,12 +142,12 @@ class ViewTicket extends ViewRecord implements HasForms
                     )),
             ])
                 ->visible(fn() => (in_array(
-                        auth()->user()->id,
-                        [$this->record->owner_id, $this->record->responsible_id]
-                    )) || (
-                        $this->record->watchers->where('id', auth()->user()->id)->count()
-                        && $this->record->hours()->count()
-                    ))
+                    auth()->user()->id,
+                    [$this->record->owner_id, $this->record->responsible_id]
+                )) || (
+                    $this->record->watchers->where('id', auth()->user()->id)->count()
+                    && $this->record->hours()->count()
+                ))
                 ->color('secondary'),
         ];
     }
@@ -190,11 +190,11 @@ class ViewTicket extends ViewRecord implements HasForms
     public function isAdministrator(): bool
     {
         return $this->record
-                ->project
-                ->users()
-                ->where('users.id', auth()->user()->id)
-                ->where('role', 'administrator')
-                ->count() != 0;
+            ->project
+            ->users()
+            ->where('users.id', auth()->user()->id)
+            ->where('role', 'administrator')
+            ->count() != 0;
     }
 
     public function editComment(int $commentId): void

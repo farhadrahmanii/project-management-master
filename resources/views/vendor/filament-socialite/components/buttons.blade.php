@@ -5,12 +5,8 @@
 
     <div class="grid grid-cols-2 gap-4">
         @foreach($providers as $key => $provider)
-            <x-filament::button
-                color="secondary"
-                :icon="$provider['icon'] ?? null"
-                tag="a"
-                :href="route('socialite.oauth.redirect', $key)"
-            >
+            <x-filament::button color="secondary" :icon="$provider['icon'] ?? null" tag="a"
+                :href="route('socialite.oauth.redirect', $key)">
                 {{ $provider['label'] }}
             </x-filament::button>
         @endforeach

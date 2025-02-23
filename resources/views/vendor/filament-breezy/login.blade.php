@@ -19,7 +19,7 @@
             @if(config("filament-breezy.enable_registration"))
                 <p class="mt-2 text-sm text-center">
                     {{ __('filament-breezy::default.or') }}
-                    <a class="text-primary-600" href="{{route(config('filament-breezy.route_group_prefix').'register')}}">
+                    <a class="text-primary-600" href="{{route(config('filament-breezy.route_group_prefix') . 'register')}}">
                         {{ strtolower(__('filament-breezy::default.registration.heading')) }}
                     </a>
                 </p>
@@ -33,17 +33,13 @@
         </x-filament::button>
 
         <div class="text-center">
-            <a class="text-primary-600 hover:text-primary-700" href="{{route(config('filament-breezy.route_group_prefix').'password.request')}}">{{ __('filament-breezy::default.login.forgot_password_link') }}</a>
+            <a class="text-primary-600 hover:text-primary-700"
+                href="{{route(config('filament-breezy.route_group_prefix') . 'password.request')}}">{{ __('filament-breezy::default.login.forgot_password_link') }}</a>
         </div>
     @endif
 
-    @if(config('services.oidc.is_enabled'))
-        <x-filament::button
-            color="secondary"
-            class="w-full"
-            tag="a"
-            :href="route('oidc.redirect')"
-        >
+    @if(config('services.oidc.true'))
+        <x-filament::button color="secondary" class="w-full" tag="a" :href="route('oidc.redirect')">
             <div class="w-full flex items-center gap-2">
                 <x-heroicon-o-login class="w-5 h-5" />
                 {{ __('OIDC Connect') }}
@@ -51,7 +47,7 @@
         </x-filament::button>
     @endif
 
-    @if(config('filament-socialite.enabled'))
+    @if(config('filament-socialite.true'))
         <x-filament-socialite::buttons />
     @endif
 </x-filament-breezy::auth-card>

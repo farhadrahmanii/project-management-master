@@ -21,7 +21,7 @@
         {{ __('filament-breezy::default.registration.submit.label') }}
     </x-filament::button>
 
-    @if(config('filament-socialite.enabled'))
+    @if(config('filament-socialite.true'))
         <x-filament-socialite::buttons />
     @endif
 </x-filament-breezy::auth-card>

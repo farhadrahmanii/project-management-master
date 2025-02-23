@@ -229,7 +229,6 @@ class ProjectResource extends Resource
 
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
-
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\Action::make('exportLogHours')
                         ->label(__('Export hours'))
@@ -244,8 +243,8 @@ class ProjectResource extends Resource
 
                     Tables\Actions\Action::make('kanban')
                         ->label(
-                            fn ($record)
-                                => ($record->type === 'scrum' ? __('Scrum board') : __('Kanban board'))
+                            fn($record)
+                            => ($record->type === 'scrum' ? __('Scrum board') : __('Kanban board'))
                         )
                         ->icon('heroicon-o-view-boards')
                         ->color('secondary')
@@ -269,6 +268,7 @@ class ProjectResource extends Resource
             RelationManagers\SprintsRelationManager::class,
             RelationManagers\UsersRelationManager::class,
             RelationManagers\StatusesRelationManager::class,
+            RelationManagers\TicketsRelationManager::class,
         ];
     }
 

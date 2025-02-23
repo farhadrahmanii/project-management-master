@@ -13,9 +13,17 @@ use Illuminate\Support\Str;
 class PermissionsSeeder extends Seeder
 {
     private array $modules = [
-        'permission', 'project', 'project status', 'role', 'ticket',
-        'ticket priority', 'ticket status', 'ticket type', 'user',
-        'activity', 'sprint'
+        'permission' => 'Permission',
+        'project' => 'Project',
+        'project status' => 'Project',
+        'role' => 'Role',
+        'ticket' => 'Ticket',
+        'ticket priority' => 'Ticket',
+        'ticket status' => 'Ticket',
+        'ticket type' => 'Ticket',
+        'user' => 'User',
+        'activity' => 'Activity',
+        'sprint' => 'Sprint'
     ];
 
     private array $pluralActions = [
@@ -23,12 +31,17 @@ class PermissionsSeeder extends Seeder
     ];
 
     private array $singularActions = [
-        'View', 'Create', 'Update', 'Delete'
+        'View',
+        'Create',
+        'Update',
+        'Delete'
     ];
 
     private array $extraPermissions = [
-        'Manage general settings', 'Import from Jira',
-        'List timesheet data', 'View timesheet dashboard'
+        'Manage general settings' => 'General',
+        'Import from Jira' => 'General',
+        'List timesheet data' => 'Timesheet',
+        'View timesheet dashboard' => 'Timesheet'
     ];
 
     private string $defaultRole = 'Default role';
@@ -41,24 +54,27 @@ class PermissionsSeeder extends Seeder
     public function run()
     {
         // Create profiles
-        foreach ($this->modules as $module) {
+        foreach ($this->modules as $module => $type) {
             $plural = Str::plural($module);
             $singular = $module;
             foreach ($this->pluralActions as $action) {
                 Permission::firstOrCreate([
-                    'name' => $action . ' ' . $plural
+                    'name' => $action . ' ' . $plural,
+                    'type' => $type
                 ]);
             }
             foreach ($this->singularActions as $action) {
                 Permission::firstOrCreate([
-                    'name' => $action . ' ' . $singular
+                    'name' => $action . ' ' . $singular,
+                    'type' => $type
                 ]);
             }
         }
 
-        foreach ($this->extraPermissions as $permission) {
+        foreach ($this->extraPermissions as $permission => $type) {
             Permission::firstOrCreate([
-                'name' => $permission
+                'name' => $permission,
+                'type' => $type
             ]);
         }
 

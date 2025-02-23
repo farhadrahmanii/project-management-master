@@ -37,6 +37,8 @@ class RoleResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $permissionTypes = Permission::select('type')->distinct()->pluck('type');
+
         return $form
             ->schema([
                 Forms\Components\Card::make()
@@ -45,17 +47,29 @@ class RoleResource extends Resource
                             ->columns(1)
                             ->schema([
                                 Forms\Components\TextInput::make('name')
-                                    ->label(__('Permission name'))
-                                    ->unique(table: Permission::class, column: 'name')
+                                    ->label(__('Role name'))
+                                    ->unique(table: Role::class, column: 'name', ignoreRecord: true)
                                     ->maxLength(255)
                                     ->required(),
-
-                                Forms\Components\CheckboxList::make('permissions')
-                                    ->label(__('Permissions'))
-                                    ->required()
-                                    ->columns(4)
-                                    ->relationship('permissions', 'name'),
                             ]),
+                        Forms\Components\Grid::make()
+                            ->columns(3)
+                            ->schema(
+                                $permissionTypes->map(function ($type, $index) {
+                                    return Forms\Components\Section::make(__($type . ' Permissions'))
+                                        ->schema([
+                                            Forms\Components\CheckboxList::make('permissions')
+                                                ->label(__('Permissions'))
+                                                ->required()
+                                                ->columns(2)
+                                                ->relationship('permissions', 'name')
+                                                ->options(Permission::where('type', $type)->pluck('name', 'id')),
+                                        ])
+                                        ->collapsible()
+                                        ->collapsed($index !== 0)
+                                        ->columnSpan(1);
+                                })->toArray()
+                            ),
                     ])
             ]);
     }

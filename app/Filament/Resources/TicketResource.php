@@ -185,7 +185,7 @@ class TicketResource extends Resource
                             ->columns(12)
                             ->schema([
                                 Forms\Components\TextInput::make('estimation')
-                                    ->label(__('Estimation time'))
+                                    ->label(__('Estimation time By Hours'))
                                     ->numeric()
                                     ->columnSpan(2),
                             ]),

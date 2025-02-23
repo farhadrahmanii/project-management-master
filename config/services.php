@@ -56,7 +56,7 @@ return [
     ],
 
     'oidc' => [
-        'is_enabled' => true,
+        'is_enabled' => false,
         'client_id' => env('OIDC_CLIENT_ID'),
         'client_secret' => env('OIDC_CLIENT_SECRET'),
         'discovery_endpoint' => env('OIDC_DISCOVERY_ENDPOINT'),
