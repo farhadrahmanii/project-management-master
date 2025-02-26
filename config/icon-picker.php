@@ -19,7 +19,7 @@ return [
         'heroicons',
         'fontawesome',
     ],
-//     example:
+    //     example:
 //     'sets' => 'heroicons',
 //     'sets' => [
 //        'heroicons',
@@ -39,7 +39,7 @@ return [
     |
     */
     'columns' => 3,
-//     example:
+    //     example:
 //    'columns' => [
 //        'default' => 1,
 //        'lg' => 3,

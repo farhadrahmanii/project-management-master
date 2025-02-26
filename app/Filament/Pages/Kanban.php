@@ -57,12 +57,12 @@ class Kanban extends Page implements HasForms
         ];
     }
 
-    protected function getHeading(): string|Htmlable
+    public function getHeading(): string|Htmlable
     {
         return $this->kanbanHeading();
     }
 
-    protected function getFormSchema(): array
+    public function getFormSchema(): array
     {
         return $this->formSchema();
     }

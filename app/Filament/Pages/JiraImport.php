@@ -52,27 +52,27 @@ class JiraImport extends Page implements HasForms
         $this->form->fill();
     }
 
-    protected static function shouldRegisterNavigation(): bool
+    public static function shouldRegisterNavigation(): bool
     {
         return auth()->user()->can('Import from Jira');
     }
 
-    protected function getSubheading(): string|Htmlable|null
+    public function getSubheading(): string|Htmlable|null
     {
         return __('Use this section to login into your jira account and import tickets to this application');
     }
 
-    protected static function getNavigationLabel(): string
+    public static function getNavigationLabel(): string
     {
         return __('Jira import');
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return __('Settings');
     }
 
-    protected function getFormSchema(): array
+    public function getFormSchema(): array
     {
         return [
             Card::make()
