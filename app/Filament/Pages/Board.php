@@ -23,7 +23,7 @@ class Board extends Page implements HasForms
 
     protected static ?int $navigationSort = 4;
 
-    protected function getSubheading(): string|Htmlable|null
+    public function getSubheading(): string|Htmlable|null
     {
         return __("In this section you can choose one of your projects to show it's Scrum or Kanban board");
     }
@@ -33,12 +33,12 @@ class Board extends Page implements HasForms
         $this->form->fill();
     }
 
-    protected static function getNavigationLabel(): string
+    public static function getNavigationLabel(): string
     {
         return __('Board');
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return __('Management');
     }
@@ -56,7 +56,7 @@ class Board extends Page implements HasForms
                                 ->required()
                                 ->searchable()
                                 ->reactive()
-                                ->afterStateUpdated(fn () => $this->search())
+                                ->afterStateUpdated(fn() => $this->search())
                                 ->helperText(__("Choose a project to show it's board"))
                                 ->options(fn() => Project::where('owner_id', auth()->user()->id)
                                     ->orWhereHas('users', function ($query) {

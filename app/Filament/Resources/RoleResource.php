@@ -6,11 +6,9 @@ use App\Filament\Resources\RoleResource\Pages;
 use App\Filament\Resources\RoleResource\RelationManagers;
 use App\Models\Permission;
 use App\Models\Role;
-use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
-use Filament\Tables;
+use Filament\Tables\Table;
 
 class RoleResource extends Resource
 {
@@ -20,7 +18,7 @@ class RoleResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
-    protected static function getNavigationLabel(): string
+    public static function getNavigationLabel(): string
     {
         return __('Roles');
     }
@@ -30,7 +28,7 @@ class RoleResource extends Resource
         return static::getNavigationLabel();
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return __('Permissions');
     }

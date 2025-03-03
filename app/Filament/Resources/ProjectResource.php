@@ -11,11 +11,9 @@ use App\Models\ProjectStatus;
 use App\Models\Ticket;
 use App\Models\User;
 use Filament\Facades\Filament;
-use Filament\Forms;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
-use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
@@ -28,7 +26,7 @@ class ProjectResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static function getNavigationLabel(): string
+    public static function getNavigationLabel(): string
     {
         return __('Projects');
     }
@@ -38,7 +36,7 @@ class ProjectResource extends Resource
         return static::getNavigationLabel();
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return __('Management');
     }

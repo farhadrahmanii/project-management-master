@@ -65,17 +65,17 @@ class Scrum extends Page implements HasForms
         ];
     }
 
-    protected function getHeading(): string|Htmlable
+    public function getHeading(): string|Htmlable
     {
         return $this->scrumHeading();
     }
 
-    protected function getSubheading(): string|Htmlable|null
+    public function getSubheading(): string|Htmlable|null
     {
         return $this->scrumSubHeading();
     }
 
-    protected function getFormSchema(): array
+    public function getFormSchema(): array
     {
         return $this->formSchema();
     }
