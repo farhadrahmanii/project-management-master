@@ -18,6 +18,8 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
-        "flowbite": "^1.5.3"
+        "flowbite": "^1.5.3",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
     }
 }

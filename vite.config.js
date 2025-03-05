@@ -3,7 +3,10 @@ import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     plugins: [
-        laravel(['resources/ts/app.tsx']),
+        laravel([
+            'resources/ts/app.tsx',
+            'resources/css/filament.scss', // Added the SCSS file
+        ]),
     ],
     resolve: {
         alias: {
@@ -11,17 +14,3 @@ export default defineConfig({
         },
     },
 });
-
-
-
-
-// For Production Purpose 
-
-// import { defineConfig } from 'vite';
-// import laravel from 'laravel-vite-plugin';
-
-// export default defineConfig({
-//     build: {
-//         outDir: 'public/build',
-//     },
-// });
