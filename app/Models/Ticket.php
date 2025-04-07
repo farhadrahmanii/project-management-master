@@ -8,7 +8,6 @@ use App\Notifications\TicketCreated;
 use Illuminate\Database\Eloquent\Model;
 use App\Notifications\TicketStatusUpdated;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Guava\FilamentDrafts\Concerns\HasDrafts;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -18,9 +17,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Heloufir\FilamentWorkflowManager\Core\InteractsWithWorkflows;
 
+
 class Ticket extends Model implements HasMedia, HasWorkflow
 {
-    use HasFactory, SoftDeletes, InteractsWithMedia, InteractsWithWorkflows, HasDrafts;
+    use HasFactory, SoftDeletes, InteractsWithMedia, InteractsWithWorkflows;
 
     protected $fillable = [
         'name',

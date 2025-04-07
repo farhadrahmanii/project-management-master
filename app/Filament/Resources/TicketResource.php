@@ -27,7 +27,6 @@ use Guava\FilamentDrafts\Admin\Resources\Concerns\Draftable;
 
 class TicketResource extends Resource
 {
-    use Draftable;
     protected static ?string $model = Ticket::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-ticket';
@@ -299,8 +298,6 @@ class TicketResource extends Resource
                         '))
                 ->sortable()
                 ->searchable(),
-            Tables\Columns\BooleanColumn::make('is_published')
-                ->label(__('is_published')),
             Tables\Columns\TextColumn::make('created_at')
                 ->label(__('Created at'))
                 ->dateTime()

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98e441e6987a0b2666e4633f51b1a759",
+    "content-hash": "6b058f2d6cbb174382170dbd59f6feda",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -2461,7 +2461,6 @@
             },
             "require": {
                 "filament/filament": "^2.0",
-                "oddvalue/laravel-drafts": "^1.3",
                 "php": "^8.1"
             },
             "require-dev": {
@@ -5431,89 +5430,6 @@
                 }
             ],
             "time": "2024-11-21T10:36:35+00:00"
-        },
-        {
-            "name": "oddvalue/laravel-drafts",
-            "version": "v1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oddvalue/laravel-drafts.git",
-                "reference": "2c4b3c2ec56c57958480d6c550448dc55de6b59e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oddvalue/laravel-drafts/zipball/2c4b3c2ec56c57958480d6c550448dc55de6b59e",
-                "reference": "2c4b3c2ec56c57958480d6c550448dc55de6b59e",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "^3.3",
-                "illuminate/contracts": "^9.0|^10.0|^11.0",
-                "php": "^8.0",
-                "spatie/laravel-package-tools": "^1.9.2"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.8",
-                "nunomaduro/larastan": "^2.0.1",
-                "orchestra/testbench": "^7.0|^8.0|^9.0",
-                "pestphp/pest": "^1|^2",
-                "pestphp/pest-plugin-laravel": "^1.1|^2.0",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "phpunit/phpunit": "^9.0|^10.0",
-                "roave/security-advisories": "dev-latest",
-                "spatie/invade": "^2.0",
-                "spatie/pest-plugin-test-time": "^1.0|^2.0",
-                "spatie/ray": "^1.37"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "LaravelDrafts": "Oddvalue\\LaravelDrafts\\Facades\\LaravelDrafts"
-                    },
-                    "providers": [
-                        "Oddvalue\\LaravelDrafts\\LaravelDraftsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Oddvalue\\LaravelDrafts\\": "src",
-                    "Oddvalue\\LaravelDrafts\\Database\\Factories\\": "database/factories"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "jim",
-                    "email": "jim@oddvalue.co.uk",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A simple, drop-in drafts/revisions system for Laravel models",
-            "homepage": "https://github.com/oddvalue/laravel-drafts",
-            "keywords": [
-                "Revisions",
-                "drafts",
-                "laravel",
-                "oddvalue"
-            ],
-            "support": {
-                "issues": "https://github.com/oddvalue/laravel-drafts/issues",
-                "source": "https://github.com/oddvalue/laravel-drafts/tree/v1.5.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/oddvalue",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-04-15T21:58:06+00:00"
         },
         {
             "name": "openai-php/client",
