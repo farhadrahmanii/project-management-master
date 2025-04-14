@@ -2,29 +2,30 @@
 
 namespace App\Filament\Resources\TicketResource\Pages;
 
-use App\Exports\TicketHoursExport;
-use App\Filament\Resources\TicketResource;
 use App\Models\Activity;
-use App\Models\TicketComment;
 use App\Models\TicketHour;
-use App\Models\TicketSubscriber;
-use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TimePicker;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Notifications\Actions\Action;
-use Filament\Notifications\Notification;
 use Filament\Pages\Actions;
-use Filament\Resources\Pages\ViewRecord;
+use App\Models\TicketComment;
+use App\Models\TicketSubscriber;
+use App\Exports\TicketHoursExport;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Facades\Excel;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
+use Filament\Resources\Pages\ViewRecord;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\TimePicker;
+use App\Filament\Resources\TicketResource;
+use Filament\Notifications\Actions\Action;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Heloufir\FilamentWorkflowManager\Core\WorkflowResource;
 
 class ViewTicket extends ViewRecord implements HasForms
 {
-    use InteractsWithForms;
+    use WorkflowResource,InteractsWithForms ;
 
     protected static string $resource = TicketResource::class;
 
@@ -35,13 +36,11 @@ class ViewTicket extends ViewRecord implements HasForms
     protected $listeners = ['doDeleteComment'];
 
     public $selectedCommentId;
-
     public function mount($record): void
     {
         parent::mount($record);
         $this->form->fill();
     }
-
     protected function getActions(): array
     {
         return [

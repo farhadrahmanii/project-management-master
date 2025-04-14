@@ -1,15 +1,18 @@
-@import '../../vendor/filament/filament/resources/css/app.css';
+@import "../../vendor/filament/filament/resources/css/app.css";
 
-@import './kanban';
-@import './dialogs';
-@import './loading.io';
+// body {
+//     color: #000; /* Set text color to black for better visibility in light mode */
+// }
+
+@import "./kanban";
+@import "./dialogs";
+@import "./loading.io";
 
 .filament-header-heading {
     display: block;
 }
 
 .ticket-comment {
-
     .actions {
         @apply opacity-0 transition;
     }
@@ -19,7 +22,6 @@
             @apply opacity-100;
         }
     }
-
 }
 
 .filament-forms-repeater-component {

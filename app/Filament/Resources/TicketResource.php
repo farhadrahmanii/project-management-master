@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources;
 
-use AskerAkbar\GptTrixEditor\Components\GptTrixEditor;
 use Filament\Forms;
 use App\Models\Epic;
 use App\Models\User;
@@ -17,13 +16,16 @@ use App\Models\TicketPriority;
 use App\Models\TicketRelation;
 use Filament\Resources\Resource;
 use Illuminate\Support\HtmlString;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Pages\EditRecord;
 use Filament\Resources\Pages\CreateRecord;
 use App\Filament\Resources\TicketResource\Pages;
+use AskerAkbar\GptTrixEditor\Components\GptTrixEditor;
 use Icetalker\FilamentStepper\Forms\Components\Stepper;
 use App\Filament\Resources\TicketResource\RelationManagers;
-use Filament\Forms\Components\Toggle;
 use Guava\FilamentDrafts\Admin\Resources\Concerns\Draftable;
+use Heloufir\FilamentWorkflowManager\Tables\Columns\WorkflowStatusColumn;
+use Heloufir\FilamentWorkflowManager\Forms\Components\WorkflowStatusInput;
 
 class TicketResource extends Resource
 {
@@ -237,6 +239,7 @@ class TicketResource extends Resource
                                     ]),
                             ]),
                     ]),
+                    WorkflowStatusInput::make(),
             ]);
     }
 
@@ -303,6 +306,7 @@ class TicketResource extends Resource
                 ->dateTime()
                 ->sortable()
                 ->searchable(),
+                WorkflowStatusColumn::make()
         ]);
         return $columns;
     }

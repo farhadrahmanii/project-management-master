@@ -2,13 +2,16 @@
 
 namespace App\Filament\Resources\TicketResource\Pages;
 
-use App\Filament\Resources\TicketResource;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\TicketResource;
+use Heloufir\FilamentWorkflowManager\Core\WorkflowResource;
 
 class ListTickets extends ListRecords
 {
+    use WorkflowResource;
+
     protected static string $resource = TicketResource::class;
 
     protected function shouldPersistTableFiltersInSession(): bool
