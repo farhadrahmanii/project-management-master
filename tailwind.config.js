@@ -4,8 +4,12 @@ const colors = require('tailwindcss/colors')
 module.exports = {
     content: [
         './resources/**/*.blade.php',
+        './resources/**/*.js',
+        './resources/**/*.vue',
+        './app/Forms/**/*.php',
+        './app/Tables/**/*.php',
         './app/Filament/**/*.php',
-        './app/Http/Livewire/**/*.php',
+        './resources/views/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
         './node_modules/flowbite/**/*.js'
     ],
@@ -16,7 +20,7 @@ module.exports = {
                 danger: colors.rose,
                 primary: colors.blue,
                 success: colors.green,
-                warning: colors.yellow,
+                secondary: colors.purple,
             },
         },
     },
